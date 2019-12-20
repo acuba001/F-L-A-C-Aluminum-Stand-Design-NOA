@@ -19,15 +19,20 @@ export default class UnitsSpecifications extends Component {
     const { unitTopAreas } = this.state
     unitTopAreas[ind] = topArea
     const newTotalArea = unitTopAreas.reduce((x,y) => x+y, 0)
-    this.setState(this.state, updateTotalTopArea.bind(this,newTotalArea))
+    this.setState(
+      updateTotalTopArea.bind(this, newTotalArea)
+    )
   }
 
   updateFrontArea = (ind, frontArea) => {
     const { updateTotalFrontArea } = this.props
     const { unitFrontAreas } = this.state
     unitFrontAreas[ind] = frontArea
-    const totalArea = unitFrontAreas.reduce((x,y) => x+y, 0)
-    this.setState(this.state, updateTotalFrontArea.bind(this,totalArea))
+    const newArea = unitFrontAreas.reduce((x,y) => x+y, 0)
+    this.setState(
+      {unitFrontAreas},
+      updateTotalFrontArea.bind(this, newArea)
+    )
   }
 
   updateHeight = (ind, height) => {
@@ -35,7 +40,7 @@ export default class UnitsSpecifications extends Component {
     const { unitHeights } = this.state
     unitHeights[ind] = height
     this.setState(
-      {...this.state, unitHeights}, 
+      {unitHeights}, 
       updateMaxUnitHeight.bind(this, Math.max(...unitHeights))
     )
   }
@@ -46,7 +51,7 @@ export default class UnitsSpecifications extends Component {
 
     unitStandHeightMinimum[i] = minHeight
     this.setState(
-      {...this.state, unitStandHeightMinimum}, 
+      {unitStandHeightMinimum}, 
       updateMinStandHeight.bind(this, Math.max(...unitStandHeightMinimum))
     )
   }
@@ -59,7 +64,7 @@ export default class UnitsSpecifications extends Component {
       unitTopAreas[i] = 0
     }
     this.setState({
-      ...this.state, 
+      
       numberOfUnits: e.target.value, 
       unitStandHeightMinimum
     })
@@ -88,50 +93,55 @@ export default class UnitsSpecifications extends Component {
     }
 
     return (
-      <div className="row justify-content-center">
-        <h4>UNITS SPECIFICATIONS PER STAND</h4>
-        <div className="container">
-          <img src={img1} style={{ width: "95%" }} alt="Unit Sizes & Configurations" />
-          <div className="input-group row mb-3">
-            <label htmlFor="numberOfUnits" className="col">NUMBER OF UNITS: </label>
-            <select className="input-control col" value={numberOfUnits} onChange={this.onChangeUnitNum} id="numberOfUnits">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">WIDTH (in)</th>
-                <th scope="col">DEPTH (in)</th>
-                <th scope="col">HEIGHT (in)</th>
-                <th scope="col">WEIGHT (lb)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {unitForms}
-            </tbody>
-          </table>
-          <div className="row justify-center">
-            { !(topAreasTotal < 37.9) ? <p className="text-danger">The total top areas is too high!</p> : null}
-          </div>
-          <div className="row justify-center">
-            { !(frontAreasTotal < 50) ? <p className="text-danger">The total front areas is too high!</p> : null}
-          </div>
-          <div className="row justify-content-center">
-            <p>MINIMUM STAND HEIGHT REQUIRED: <b>{Math.max(...unitStandHeightMinimum)} in.</b></p>
+      <>
+      
+        <div className="row justify-content-center bg-info mb-3">
+          <h4>UNITS SPECIFICATIONS PER STAND</h4>
+        </div>
+        <div className="row justify-content-center">
+          <div className="container">
+            <img src={img1} style={{ width: "95%" }} alt="Unit Sizes & Configurations" />
+            <div className="input-group row mb-3">
+              <label htmlFor="numberOfUnits" className="col">NUMBER OF UNITS: </label>
+              <select className="input-control col" value={numberOfUnits} onChange={this.onChangeUnitNum} id="numberOfUnits">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">WIDTH (in)</th>
+                  <th scope="col">DEPTH (in)</th>
+                  <th scope="col">HEIGHT (in)</th>
+                  <th scope="col">WEIGHT (lb)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {unitForms}
+              </tbody>
+            </table>
+            <div className="row justify-center">
+              { !(topAreasTotal < 37.9) ? <p className="text-danger">The total top areas is too high!</p> : null}
+            </div>
+            <div className="row justify-center">
+              { !(frontAreasTotal < 50) ? <p className="text-danger">The total front areas is too high!</p> : null}
+            </div>
+            <div className="row justify-content-center">
+              <p>MINIMUM STAND HEIGHT REQUIRED: <b>{Math.max(...unitStandHeightMinimum)} in.</b></p>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     )
   }
 }

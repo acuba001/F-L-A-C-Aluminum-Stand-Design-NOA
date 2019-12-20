@@ -35,11 +35,12 @@ export default class SiteConditions extends Component {
 
   render() {
 
+    const { overlay1On, overlay2On } = this.props
     const { ultimateBasicWindSpeed, exposureCategory, totalRoofHeight } = this.state
 
     return (
       <React.Fragment>
-        <div className="row justify-content-center">
+        <div className="row justify-content-center bg-info mb-3">
           <h4>SITE CONDITIONS</h4>
         </div>
         <div className="row">
@@ -47,6 +48,7 @@ export default class SiteConditions extends Component {
             <label className="col" htmlFor="ultimateBasicWindSpeed">ULTIMATE BASIC WIND SPEED (V) = </label>
             <input className="input-control col" type="text" name="ultimateBasicWindSpeed" onChange={this.onChange} value={ultimateBasicWindSpeed} />
             <span className="input-group-text">MPH</span>
+            <button className="btn-info" onClick={overlay1On.bind(this)} >Find on map</button>
           </div>
           <div className="input-group row mb-3">
             <label htmlFor="exposureCategory" className="col">EXPOSURE CATEGORY = </label>
@@ -54,6 +56,7 @@ export default class SiteConditions extends Component {
               <option value="C">C</option>
               <option value="D">D</option>
             </select>
+            <button className="btn-info" onClick={overlay2On}>How to determine?</button>
           </div>
           <div className="input-group row mb-3">
             <label htmlFor="totalRoofHigh" className="col">TOTAL ROOF HIGH (Rh) = </label>

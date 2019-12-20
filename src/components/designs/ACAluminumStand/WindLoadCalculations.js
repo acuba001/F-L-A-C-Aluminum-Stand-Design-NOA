@@ -81,50 +81,54 @@ export default class WindLoadCalculations extends Component {
     ] = this.obtainNOA(lateralWind, upliftWind, NOAHeavyData)
     
     return (
-      <div className="row justify-content-center">
-        <h4>WIND LOAD CALCULATIONS AND STAND DESIGN</h4>
-        <div className="container">
-          <dl className="row">
-            <dt className="col-8">qz = </dt>
-            <dd className="col-4">{ isNaN(qz) ? "?" :  qz.toFixed(2) } psf</dd>
-
-            <dt className="col-8">LATERAL WIND PRESSURE = </dt>
-            <dd className="col-4">{ isNaN(lateralWind) ? "?" : lateralWind.toFixed(2) } psf = 1.9 * qz</dd>
-
-            <dt className="col-8">UPLIFT WIND PRESSURE = </dt>
-            <dd className="col-4">{ isNaN(upliftWind) ? "?" : upliftWind.toFixed(2) } psf = 1.5 * qz</dd>
-
-            <dt className="col-8">FOR STANDARD SYSTEM USE: </dt>
-            { isNaN(standardFrames) 
-            ? (<dd className="col-4"><b>Please, contact the engineer for this abnormal case.</b></dd>) 
-            :(<>
-            <dd className="col-4"><b>{standardFrames} FRAMES</b></dd>
-
-            <dt className="col-8">LATERAL WIND PRESSURE = </dt>
-            <dd className="col-4"><b>{standardLateral} psf</b> > { lateralWind.toFixed(2) } psf</dd>
-
-            <dt className="col-8">UPLIFT WIND PRESSURE = </dt>
-            <dd className="col-4"><b>{standardUplift} psf</b> > { upliftWind.toFixed(2) } psf</dd>
-            </>)
-            }
-
-            <dt className="col-8">FOR HEAVY SYSTEM USE: </dt>
-            { isNaN(heavyUplift)
-            ? (<dd className="col-4"><b>Please, contact the engineer for this abnormal case.</b></dd>)
-            :(<>
-            <dd className="col-4"><b>{heavyFrames} FRAMES</b></dd>
-
-            <dt className="col-8">LATERAL WIND PRESSURE = </dt>
-            <dd className="col-4"><b>{heavyLateral} psf</b> > { lateralWind.toFixed(2) } psf</dd>
-
-            <dt className="col-8">UPLIFT WIND PRESSURE = </dt>
-            <dd className="col-4"><b>{heavyUplift} psf</b> > { upliftWind.toFixed(2) } psf</dd>
-            </>)
-            }
-          </dl>
-
+      <>
+        <div className="row justify-content-center bg-info mb-3">
+          <h4>WIND LOAD CALCULATIONS AND STAND DESIGN</h4>
         </div>
-      </div>
+        <div className="row justify-content-center">
+          <div className="container">
+            <dl className="row">
+              <dt className="col-8">qz = </dt>
+              <dd className="col-4">{ isNaN(qz) ? "?" :  qz.toFixed(2) } psf</dd>
+
+              <dt className="col-8">LATERAL WIND PRESSURE = </dt>
+              <dd className="col-4">{ isNaN(lateralWind) ? "?" : lateralWind.toFixed(2) } psf = 1.9 * qz</dd>
+
+              <dt className="col-8">UPLIFT WIND PRESSURE = </dt>
+              <dd className="col-4">{ isNaN(upliftWind) ? "?" : upliftWind.toFixed(2) } psf = 1.5 * qz</dd>
+
+              <dt className="col-8">FOR STANDARD SYSTEM USE: </dt>
+              { isNaN(standardFrames) 
+              ? (<dd className="col-4"><b>Please, contact the engineer for this abnormal case.</b></dd>) 
+              :(<>
+              <dd className="col-4"><b>{standardFrames} FRAMES</b></dd>
+
+              <dt className="col-8">LATERAL WIND PRESSURE = </dt>
+              <dd className="col-4"><b>{standardLateral} psf</b> > { lateralWind.toFixed(2) } psf</dd>
+
+              <dt className="col-8">UPLIFT WIND PRESSURE = </dt>
+              <dd className="col-4"><b>{standardUplift} psf</b> > { upliftWind.toFixed(2) } psf</dd>
+              </>)
+              }
+
+              <dt className="col-8">FOR HEAVY SYSTEM USE: </dt>
+              { isNaN(heavyUplift)
+              ? (<dd className="col-4"><b>Please, contact the engineer for this abnormal case.</b></dd>)
+              :(<>
+              <dd className="col-4"><b>{heavyFrames} FRAMES</b></dd>
+
+              <dt className="col-8">LATERAL WIND PRESSURE = </dt>
+              <dd className="col-4"><b>{heavyLateral} psf</b> > { lateralWind.toFixed(2) } psf</dd>
+
+              <dt className="col-8">UPLIFT WIND PRESSURE = </dt>
+              <dd className="col-4"><b>{heavyUplift} psf</b> > { upliftWind.toFixed(2) } psf</dd>
+              </>)
+              }
+            </dl>
+
+          </div>
+        </div>
+      </>
     )
   }
 }

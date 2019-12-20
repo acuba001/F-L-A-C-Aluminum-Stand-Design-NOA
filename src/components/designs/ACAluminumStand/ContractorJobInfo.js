@@ -3,12 +3,12 @@ import React from 'react'
 export default function ContractorJobInfo() {
   return (
     <React.Fragment>
-      <div className="row justify-content-center">
+      <div className="row justify-content-center bg-info mb-3">
         <h4>CONTRACTOR AND JOB INFORMATION</h4>
       </div>
       <table className="table table-bordered">
         <thead>
-          <tr>
+          <tr className="bg-info">
             <th scope="col"><h5><u>CONTRACTOR INFORMATION:</u></h5></th>
             <th scope="col"><h5><u>JOB INFORMATION:</u></h5></th>
           </tr>
