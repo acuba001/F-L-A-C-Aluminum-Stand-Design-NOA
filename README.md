@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It is a continuation of a component found in [this repository](https://github.com/acuba001/milton-cubas-pe-website/tree/master/src/components/designs/ACAluminumStand) as a single page application.
 
 ## Available Scripts
 
