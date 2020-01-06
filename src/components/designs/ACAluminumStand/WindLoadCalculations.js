@@ -28,7 +28,7 @@ export default class WindLoadCalculations extends Component {
       Kz *= Math.pow(15/Zg, 2/alpha) 
     }
 
-    let qz = 0.00256 * Kz * Kd * V * V
+    let qz = 0.00256 * Kz * Kd * V * V * 0.6
 
     return [qz, 1.9*qz, 1.5*qz]
   }
