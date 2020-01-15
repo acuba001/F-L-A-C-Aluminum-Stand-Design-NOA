@@ -10,6 +10,8 @@ export default class Unit extends Component {
     weight: "",
     topAreaGood: true, 
     frontAreaGood: true, 
+    widthGood: true,
+    deepGood: true,
     highGood: true, 
     weightGood: true
   }
@@ -45,8 +47,8 @@ export default class Unit extends Component {
         const frontArea = this.area(e.target.value, high)
         const width = parseFloat(e.target.value)
         this.setState({
-          
           width: e.target.value,
+          widthGood: e.target.value === "" || parseFloat(e.target.value) <= 60,
           topAreaGood: topArea < 37.9,
           frontAreaGood: frontArea < 50
         }, () => {
@@ -57,8 +59,8 @@ export default class Unit extends Component {
       } else if(e.target.name === "deep"){
         const topArea = this.area(width, e.target.value)
         this.setState({
-          
           deep: e.target.value,
+          deepGood: e.target.value === "" || parseFloat(e.target.value) <= 60,
           topAreaGood: topArea < 37.9
         }, () => {
           this.updateTopArea(topArea)
@@ -88,7 +90,6 @@ export default class Unit extends Component {
     if(width < 60) minHeight = 30
     if(width < 48) minHeight = 24
     if(width < 36) minHeight = 18
-    if(width < 24) minHeight = 14
     const { ind, updateStandHeightMinimum } = this.props
     updateStandHeightMinimum(ind-1, minHeight)
   }

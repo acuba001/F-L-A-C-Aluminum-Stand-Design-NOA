@@ -17,7 +17,7 @@ export default class ACAluminumStand extends Component {
     exposureCategory: "C",
     totalRoofHeight: 0,
     maxUnitHeight: 0,
-    minStandHeight: 0,
+    standHeight: 18,
     totalTopArea: 0,
     totalFrontArea: 0,
     overlay1: false,
@@ -32,8 +32,8 @@ export default class ACAluminumStand extends Component {
     this.setState({maxUnitHeight: newHeight})
   }
 
-  updateMinStandHeight = (newHeight) => {
-    this.setState({minStandHeight: newHeight})
+  updateStandHeight = (newHeight) => {
+    this.setState({standHeight: newHeight})
   }
 
   updateTotalTopArea = (newArea) => {
@@ -65,7 +65,7 @@ export default class ACAluminumStand extends Component {
       exposureCategory,
       totalRoofHeight,
       maxUnitHeight,
-      minStandHeight,
+      standHeight,
       totalTopArea,
       totalFrontArea,
       overlay1,
@@ -119,7 +119,7 @@ export default class ACAluminumStand extends Component {
               <hr/>
               <UnitsSpecifications
                 updateMaxUnitHeight={this.updateMaxUnitHeight}
-                updateMinStandHeight={this.updateMinStandHeight}
+                updateStandHeight={this.updateStandHeight}
                 updateTotalTopArea={this.updateTotalTopArea}
                 updateTotalFrontArea={this.updateTotalFrontArea}
               />
@@ -129,7 +129,7 @@ export default class ACAluminumStand extends Component {
                 exposureCategory={exposureCategory}
                 totalRoofHeight={totalRoofHeight}
                 maxUnitHeight={maxUnitHeight}
-                minStandHeight={minStandHeight}
+                standHeight={standHeight}
                 totalTopArea={totalTopArea}
                 totalFrontArea={totalFrontArea}
               />

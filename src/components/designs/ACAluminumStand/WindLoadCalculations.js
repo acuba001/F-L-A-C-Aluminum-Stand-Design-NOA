@@ -10,10 +10,10 @@ export default class WindLoadCalculations extends Component {
       exposureCategory, 
       totalRoofHeight,
       maxUnitHeight,
-      minStandHeight
+      standHeight
     } = this.props
 
-    let Rh = totalRoofHeight + maxUnitHeight/12.0 + minStandHeight/12.0
+    let Rh = totalRoofHeight + maxUnitHeight/12.0 + standHeight/12.0
     let V = ultimateBasicWindSpeed
     let Kd = 0.85
     let Zg = exposureCategory === "C" ? 900 : 700
@@ -36,19 +36,19 @@ export default class WindLoadCalculations extends Component {
   obtainNOA = (lateralWind, upliftWind, NOAData) => {
     const {
       maxUnitHeight,
-      minStandHeight,
+      standHeight,
       totalFrontArea,
       totalTopArea
     } = this.props
-
+    
     for(let i = 0; i < NOAData.length; i++){
       if(NOAData[i].frontArea >= totalFrontArea 
         && NOAData[i].topArea >= totalTopArea 
         && NOAData[i].unitHeight >= maxUnitHeight){
         
           for(let j = 0; j < NOAData[i].values.length; j++){
-            let { standHeight } = NOAData[i].values[j]
-            if(standHeight >= minStandHeight){
+            let { standHeight: curStandHeight } = NOAData[i].values[j]
+            if(curStandHeight >= standHeight){
               let { frameValues } = NOAData[i].values[j]
               for(let k = 0; k < frameValues.length; k++){
                 let { frames, lateral, uplift } = frameValues[k]
