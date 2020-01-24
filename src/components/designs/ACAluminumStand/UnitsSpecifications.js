@@ -143,38 +143,53 @@ export default class UnitsSpecifications extends Component {
                 {unitForms}
               </tbody>
             </table>
-            <div className="row justify-center">
-              {!(topAreasTotal < 37.9) ? <p className="text-danger">The total top areas is too high!</p> : null}
-            </div>
-            <div className="row justify-center">
-              {!(frontAreasTotal < 50) ? <p className="text-danger">The total front areas is too high!</p> : null}
-            </div>
-            <div className="row justify-content-center">
-              <div className="col-3">
-                <label htmlFor="standHeight"><p>Stand Height:</p></label>
-              </div>
-              <div className="col-3">
-                <select
-                  className="input-control" 
-                  id="standHeight" 
-                  value={standHeight || Math.min(...possibleHeights)}
-                  onChange={this.onChangeStandHeight}
-                >
-                  {
-                    possibleHeights.map((h, i) => (
-                      <option key={i} value={h}>{h}</option>
-                    ))
-                  }
-                </select>
-              </div>
-              <div className="col-3">
-                <p>Minimum Stand Height: </p>
-              </div>
-              <div className="col">
-                <p className={minStandClasses}>{ minStandHeight }</p>
-              </div>
-              { minStandHeight >= 48 ? <p className="text-danger">Minimum Height does not comply with NOA</p> : null }
-            </div>
+            {
+              !(topAreasTotal < 37.9) ? (
+                <div className="row justify-center">
+                  <p className="text-danger">The total top areas is too high!</p>
+                </div>
+              ) : null
+            }
+            {
+              !(frontAreasTotal < 50) ? (
+                <div className="row justify-center">
+                  <p className="text-danger">The total front areas is too high!</p>
+                </div>
+              ) : null
+            }
+            <table className="table">
+              <tbody>
+                <tr>
+                  <td><p>Stand Height:</p></td>
+                  <td>
+                    <select
+                      className="input-control" 
+                      id="standHeight" 
+                      value={standHeight || Math.min(...possibleHeights)}
+                      onChange={this.onChangeStandHeight}
+                    >
+                      {
+                        possibleHeights.map((h, i) => (
+                          <option key={i} value={h}>{h}</option>
+                        ))
+                      }
+                    </select>
+                  </td>
+                  <td>
+                    <p className="mb-0">Minimum Stand Height:</p>
+                    <p>(By FBC 2017 Table 1510.10)</p>
+                  </td>
+                  <td><p className={minStandClasses}>{ minStandHeight }</p></td>
+                </tr>
+              </tbody>
+            </table>
+            {
+              minStandHeight >= 48 ? (
+                <div className="row justify-content-center">
+                  <p className="text-danger">Minimum Stand Height does not comply with NOA</p>
+                </div>
+              ) : null
+            }
           </div>
         </div>
       </>
