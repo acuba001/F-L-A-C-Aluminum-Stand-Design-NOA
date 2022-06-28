@@ -177,7 +177,7 @@ export default class UnitsSpecifications extends Component {
                   </td>
                   <td>
                     <p className="mb-0">Minimum Stand Height:</p>
-                    <p>(By FBC 2017 Table 1510.10)</p>
+                    <p>(By FBC 2020 Table 1510.10)</p>
                   </td>
                   <td><p className={minStandClasses}>{ minStandHeight }</p></td>
                 </tr>
