@@ -105,7 +105,7 @@ export default class ACAluminumStand extends Component {
               <Header/>
               <hr/>
               <div className="row justify-content-center text-center">
-                <h3>A/C ALUMINUM STAND DESIGN ACCORDING TO NOA: 18-0828.09</h3>
+                <h3>A/C ALUMINUM STAND DESIGN ACCORDING TO NOA: 20-0720.09</h3>
                 <button className="btn-info" onClick={onRefreshClick}>Refresh Form</button>
               </div>
               <hr/>
