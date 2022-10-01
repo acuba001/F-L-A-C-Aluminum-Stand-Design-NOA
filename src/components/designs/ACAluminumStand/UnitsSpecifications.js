@@ -190,6 +190,7 @@ export default class UnitsSpecifications extends Component {
                 </div>
               ) : null
             }
+            <p><strong>NOTE: Input data provided by GC. To be verified on field. Any discrepancy is the responsibility of the general contractor.</strong></p>
           </div>
         </div>
       </>
