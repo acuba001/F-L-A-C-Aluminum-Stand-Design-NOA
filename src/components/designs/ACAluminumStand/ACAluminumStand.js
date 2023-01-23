@@ -133,7 +133,7 @@ export default class ACAluminumStand extends Component {
                 totalTopArea={totalTopArea}
                 totalFrontArea={totalFrontArea}
               />
-              <h4 className="text-danger">This document is not legally binding without the approval of a certified Professional Engineer</h4>
+              {/* <h4 className="text-danger">This document is not legally binding without the approval of a certified Professional Engineer</h4> */}
             </div>
           </div>
         </div>
